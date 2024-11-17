@@ -2,8 +2,8 @@ def main ():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     num_words = get_num_words(text)
-    low = lowercase(text)
-    print(low)
+    counts = new_dict(text)
+    print(counts)
 
 def get_num_words(text):
     words = text.split()
@@ -15,8 +15,16 @@ def get_book_text(path):
         return f.read()
 
 
-def lowercase(text):
-    lowercase_text = text.lower()
-    return lowercase_text
+def new_dict(text):
+    letter_counts = {}
+    low = text.lower()
+    for char in low:
+        if char.isalpha():
+            if char in letter_counts:
+                letter_counts[char] += 1
+            else:
+                letter_counts[char] = 1
+    return letter_counts
+
 
 main()
