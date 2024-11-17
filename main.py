@@ -3,7 +3,9 @@ def main ():
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     counts = new_dict(text)
-    print(counts)
+    list = tranformation(counts)
+    list.sort(reverse=True, key=sort_on)
+    print(list)
 
 def get_num_words(text):
     words = text.split()
@@ -25,6 +27,17 @@ def new_dict(text):
             else:
                 letter_counts[char] = 1
     return letter_counts
+
+
+def tranformation(dict):
+    list_dict = []
+    for name, num in dict.items():
+        new_dict = {"name" : name, "num" : num}
+        list_dict.append(new_dict)
+    return list_dict
+
+def sort_on(dict):
+    return dict["num"]
 
 
 main()
