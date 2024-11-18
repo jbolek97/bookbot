@@ -5,7 +5,12 @@ def main ():
     counts = new_dict(text)
     list = tranformation(counts)
     list.sort(reverse=True, key=sort_on)
-    print(list)
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{num_words} words found in the document\n")
+    for lists in list:
+        print(f"The '{lists["name"]}' character was found {lists["num"]} times")
+    print("--- End report ---")
+
 
 def get_num_words(text):
     words = text.split()
